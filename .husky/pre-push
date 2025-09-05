@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+NC='\033[0m'
+BGRed='\033[0;41m'
+BGreen='\033[30;42m'
+BIYellow="\033[1;93m"
+BIBlack="\033[1;90m"
+
+
+# Rodar o phpstan
+#./vendor/bin/phpstan
+#if [ $? -ne 0 ];
+#then
+#    echo "${BGreen} Erros foram encontrados no PHPStan. Corrija antes de continuar... 👮🏽 ${NC}";
+#    exit 1;
+#fi;
+
+# rodar os testes
+echo "${BIYellow} 🧪 Rodando testes... ${NC}"
+if ! ./vendor/bin/sail artisan test --stop-on-failure;
+then
+    echo "\n\n${BGRed}                                                                       ${NC}";
+    echo "${BGRed} ${BIBlack} Opa! os testes encontraram erros. Corrija antes de continuar... 👮🏽 ${NC}";
+    echo "${BGRed}                                                                       ${NC}\n\n";
+    exit 1;
+fi;
+
+
+echo "\n\n${BGreen}                                    ${NC}";
+echo "${BGreen} Tudo certo! Push autorizado 👮🏽🎉 ${NC}";
+echo "${BGreen}                                    ${NC}\n\n";
+exit 0;

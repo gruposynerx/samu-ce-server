@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+NC='\033[0m'
+BGRed='\033[0;41m'
+BGreen='\033[30;42m'
+
+
+# Rodar o phpstan
+#./vendor/bin/phpstan
+#if [ $? -ne 0 ];
+#then
+#    echo "${BGreen} Erros foram encontrados no PHPStan. Corrija antes de continuar... 👮🏽 ${NC}";
+#    exit 1;
+#fi;
+
+
+# Formatar cada arquivo alterado usando o Laravel Pint
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".php\{0,1\}$") || true
+
+for FILE in $STAGED_FILES
+do
+    echo "Formatando ${FILE}...";
+    ./vendor/bin/sail composer lint "${FILE}" > /dev/null >&1;
+    git add "${FILE}";
+done;
+
+echo "\n\n${BGreen}                                    ${NC}";
+echo "${BGreen} Tudo certo! Push autorizado 👮🏽🎉 ${NC}";
+echo "${BGreen}                                    ${NC}\n\n";
+exit 0;

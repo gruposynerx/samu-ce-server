@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'user_id.required' => 'O usuário é obrigatório.',
+    'user_id.uuid' => 'O usuário deve ser um uuid válido.',
+    'user_id.exists' => 'O usuário não existe.',
+    'schedulable_id.required' => 'O local de trabalho é obrigatório.',
+    'schedulable_id.uuid' => 'O local de trabalho deve ser um uuid válido.',
+    'schedulable_id.exists' => 'O local de trabalho não existe.',
+    'valid_from.required' => 'A data de início é obrigatória.',
+    'valid_from.date' => 'A data de início deve ser uma data válida.',
+    'valid_through.required' => 'A data do fim é obrigatória.',
+    'valid_through.date' => 'A data do fim deve ser uma data válida.',
+    'valid_through.after_or_equal' => 'A data do fim deve ser posterior ou igual à data de início.',
+    'valid_through.before_or_equal' => 'A data do fim deve ser no máximo 3 meses após a data de início.',
+    'days_of_week.required' => 'Os dias da semana são obrigatórios.',
+    'days_of_week.array' => 'Os dias da semana devem ser um array.',
+    'days_of_week.*.integer' => 'O dia da semana deve ser um inteiro.',
+    'clock_in.required' => 'O horário de entrada é obrigatório.',
+    'clock_in.string' => 'O horário de entrada deve ser uma string.',
+    'clock_in.before' => 'O horário de entrada deve ser anterior ao horário de saída.',
+    'clock_out.required' => 'O horário de saída é obrigatório.',
+    'clock_out.string' => 'O horário de saída deve ser uma string.',
+    'schedule_type_id.required' => 'O tipo de turno é obrigatório.',
+    'schedule_type_id.Illuminate\Validation\Rules\Enum' => 'O tipo de turno deve ser válido.',
+];
