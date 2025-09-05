@@ -75,7 +75,6 @@ use App\Http\Controllers\VehicleStatusHistoryController;
 use App\Http\Controllers\VehicleTrackingController;
 use App\Http\Controllers\WorkplaceController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VehicleConsultationController;
 use App\Http\Controllers\CallsConsultationController;
 /*
 |--------------------------------------------------------------------------
