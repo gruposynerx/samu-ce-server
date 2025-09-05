@@ -63,8 +63,10 @@ COPY composer.json composer.lock ./
 # Copiar todos os arquivos do projeto
 COPY . .
 
+RUN composer diagnose || true
+
 # Instalar dependências do Laravel
-RUN composer install --optimize-autoloader --no-dev --no-interaction
+RUN composer install --optimize-autoloader --no-dev --no-interaction -vvv
 
 # Copiar o script de entrada
 COPY entrypoint.sh /entrypoint.sh
